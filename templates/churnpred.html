@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Analysis and Predicton</title>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/inedx.css">
+
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light p-3">
+
+
+
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="/dashboard">Dash Board</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="/churnpred">Add new customer</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="/view">View all customers</a>
+				  </li>
+		  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="/view1">View customer by Id</a>
+				  </li>
+
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="/logout">Logout</a>
+				  </li>
+
+				</ul>
+			  </div>
+			</div>
+		  </nav>
+		</header>
+   <div class="login" >
+       <br>
+       <br>
+       <br>
+       <br>
+	<h2>Add Customer details to get Churn Prediction</h1>
+
+        <form action="{{ url_for('predict')}}"method="post" style="display:{{ display }}">
+
+        <div class="column" >
+    		<fieldset style="">
+    			<legend><b></b></legend>
+    			<p style="text-align: left;"><b>Tenure :</b><br>
+    			<input type="number" name="tenure" placeholder="Tenure with the organization" required="required">
+    			</p>
+
+
+    			<p><b>City Tier:</b><br>
+    			<select name="citytier" id="citytier" required="">
+    				<option value="1">Tier 1</option>
+    				<option value="2">Tier 2</option>
+    				<option value="3">Tier 3</option>
+    			</select></p>
+
+
+    			<p><b>Distance to the warehouse from the residence :</b><br>
+    			<input type="text" name="warehousetohome" placeholder="Distance in KM" required="required">
+    			</p>
+
+
+    			<p><b>Gender :</b></p>
+
+                <div style="float:left;margin-right: 1.5em;">
+    			<input type="radio" id="male" name="gender" value="1" required="required" style="">
+    			<label for="male">Male</label>
+    			</div>
+    			<div style="float:left; margin-right: 1.5em;">
+    			<input type="radio" id="female" name="gender" value="0" required="required">
+    			<label for="female">Female</label>
+    			</div>
+    			<br>
+
+
+    			<p><b>Marital Status :</b><br>
+    			<select name="maritalstatus" id="maritalstatus" required="">
+    				<option value="2">Single</option>
+    				<option value="1">Married</option>
+    				<option value="0">Divorced</option>
+    			</select></p>
+
+
+    			<p><b>Any complaints in the last month :</b></p>
+    			<div style="float:left; margin-right: 1.5em;">
+    			<input type="radio" id="yes" name="complain" value="1" required="required">
+    			<label for="yes">Yes</label>
+    			</div>
+    			<div style="float:left; margin-right: 1.5em;">
+    			<input type="radio" id="no" name="complain" value="0" required="required">
+    			<label for="no">No</label>
+    			</div>
+    			<br>
+
+
+    			<p><b>Number of coupons used in the last month :</b><br>
+    			<input type="number" name="couponused" placeholder="Coupons Used" required="required"></p>
+
+
+    			<p><b>Number of orders made in the last month :</b><br>
+    			<input type="number" name="ordercount" placeholder="Number of Orders" required="required"></p>
+
+    			<p><b>Cashback Amount :</b><br>
+    			<input type="number" name="cashbackamount" placeholder="Cashback Amount" required="required"></p>
+    			<p><b>Number of days since last order placed :</b><br>
+    				<input type="number" name="lastorder" placeholder="Day Since Last Order" required="required"></p>
+
+
+    				<p><b>Preferred login device:</b><br>
+    				<select name="logindevice" id="PreferredLoginDevice" required="">
+    					<option value="1">Mobile Phone</option>
+    					<option value="0">Computer</option>
+    				</select></p>
+
+
+    				<p><b>Number of devices registered with the app :</b><br>
+    				<input type="number" name="numdevices" placeholder="Number Of Devices Registered" required="required"></p>
+
+
+    				<p><b>Preferred Payment Mode: </b><br>
+    				<select name="paymentmode" id="paymentmode" required="">
+    					<option value="DC">Debit Card</option>
+    					<option value="CC">Credit Card</option>
+    					<option value="UPI">UPI</option>
+    					<option value="COD">Cash On Delivery</option>
+    					<option value="E wallet">E-wallet</option>
+    				</select></p>
+
+
+    				<p><b>Preferred Order Category: </b><br>
+
+
+    				<select name="ordercat" id="ordercat" required="">
+    					<option value="Laptop">Laptop</option>
+    					<option value="Mobile">Mobile</option>
+    					<option value="Fashion">Fashion</option>
+    					<option value="Grocery">Grocery</option>
+    					<option value="Others">Others</option>
+    				</select></p>
+
+
+    				<p><b>Approx. number of hours customer spends on app :</b><br>
+    				<input type="number" name="hourspend" placeholder="Time spend on App (Hours)" required="required"></p>
+
+
+    				<p><b>Satisfaction score : </b><br>
+    				<select name="satisfactionscore" id="satisfactionscore" required="">
+    					<option value="1">1</option>
+    					<option value="2">2</option>
+    					<option value="3">3</option>
+    					<option value="4">4</option>
+    					<option value="5">5</option>
+    				</select></p>
+
+
+    				<p><b>Number of addresses registered with the app :</b><br>
+    				<input type="number" name="numaddress" placeholder="Number Of Address" required="required"></p>
+
+
+    				<p><b>Percentage increases in order from last year :</b><br>
+    				<input type="number" name="orderhike" placeholder="Hike in Order Percentage" required="required"></p>
+            <div class="">
+    			<input type="submit" class="button-submit" style="cursor:pointer;" hover="background-color:blue;">
+    		</div>
+    		</fieldset>
+    		</div>
+
+        </form>
+        <div>
+        {% for row in data %}
+    <span>{{row}}</span>
+{% endfor %}
+</div>
+       <div class="result href_a" align="center" style="display:{{ display_a}}">
+       		<div class="result" align="center">
+
+       		{% if prediction==1 %}
+       			<h2><p style="padding: 0.3%; color:red; text-align: center;"><b>CUSTOMER WILL CHURN OUT!</b></p></h2>
+       		{% elif prediction==0 %}
+       			<h2><p style="padding: 0.3%; color:green;text-align: center;"><b>CUSTOMER WILL NOT CHURN OUT!</b></p></h2>
+       		{% endif %}
+
+		</form>
+        <form action="{{ url_for('churnpred')}}">
+
+            <button>Try New Customer</button>
+       	</div>
+   </div>
+    </div>
+
+
+
+</body>
+</html>

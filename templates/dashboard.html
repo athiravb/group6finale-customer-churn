@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/inedx.css">
+
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light p-3">
+
+
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/dashboard">Dash Board</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/churnpred">Add new customer</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/view">View all customers</a>
+              </li>
+      <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/view1">View customer by Id</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<h2>Welcome <strong style="text-transform: capitalize;">{{ session['username'] }}!!!</strong></h6>
+<p>Total Predicted Customers: <span id="total_customers">{{ no }}</span></p>
+<p>Total Customers who will Churn : <span id="total_churn">{{ churn }}</span></p>
+<p>Total Customers who will not Churn : <span id="total_churn">{{ not_churn }}</span></p>
+<p>Churn %  : <span id="total_churn">{{ churn_percentage }}</span></p>
+<img src="{{ churn_pie }}" alt="Churn Pie Chart">
+
+
+</body>
+</html>

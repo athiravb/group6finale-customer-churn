@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/inedx.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light p-3">
+
+
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/dashboard">Dash Board</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/churnpred">Add new customer</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/view">View all customers</a>
+                  </li>
+          <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/view1">View customer by Id</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+        <div class="container">
+            <table class="table table-info table-striped table-bordered border-default table table-sm">
+              <thead>
+                <tr class="table-danger">
+                  <th scope="col">Customer Id</th>
+                  <th scope="col">Tenure</th>
+                  <th scope="col">Preferred Login Device</th>
+                  <th scope="col">City Tier</th>
+                  <th scope="col">Warehouse To Home</th>
+                  <th scope="l">Gender</th>
+                  <th scope="col">Number Of Device Registered</th>
+                  <th scope="col">Satisfaction Score</th>
+                  <th scope="col">Marital Status</th>
+                  <th scope="col">Number Of Address</th>
+                  <th scope="col">Complain</th>
+                  <th scope="col">Day Since Last Order</th>
+                  <th scope="col">Cash back</th>
+                  <th scope="col">Avg Cashback per Order</th>
+                  <th scope="col">Payment Mode</th>
+                  <th scope="col">Order Category</th>
+                  <th scope="col">Churn or Not</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for i in data %}
+                <tr >
+                  <th scope="row">{{ i.Id }}</th>
+                  <td>{{ i.Tenure }}</td>
+
+                  <td>{{ i.PreferredLoginDevice }}</td>
+                  <td>{{ i.CityTier }}</td>
+                  <td>{{ i.WarehouseToHome }}</td>
+                  <td>{{ i.Gender }}</td>
+                  <td>{{ i.NumberOfDeviceRegistered }}</td>
+                  <td>{{ i.SatisfactionScore }}</td>
+                  <td>{{ i.MaritalStatus }}</td>
+                  <td>{{ i.NumberOfAddress }}</td>
+                  <td>{{ i.Complain }}</td>
+                  <td>{{ i.DaySinceLastOrder }}</td>
+                  <td>{{ i.CashbackAmount }}</td>
+                  <td>{{ i.avg_cashbk_per_order }}</td>
+                  <td>{{ i.PaymentMode }}</td>
+                  <td>{{ i.OrderCat}}</td>
+                  <td>{{ i.Churn}}</td>
+
+
+                </tr>
+
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+</body>
+</html>
